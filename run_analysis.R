@@ -1,8 +1,9 @@
 
+
 ## 1. Set working directory
 setwd("~/Eszter C/Spotfire Edu/Data science/UCI HAR Dataset")
 #2.Read the relevant tables from test and train, assuming all files are available in the working directory and load them in R. View the tables.
-Datatrain <- read.table("./train/X_train.txt", header=FALSE)
+Datatrain <- read.table("./Join", header=FALSE)
 dim(Datatrain)
 
 Trainlabel <- read.table("./train/y_train.txt")
@@ -29,7 +30,8 @@ names(Temp_train)<-c("subjectID","activity")
 #5. Extracts only the measurements on the mean and standard deviation, Create the name column: read the feature names as character and add the manes to the train and test tables. 
 features<-as.character(read.table("./features.txt")[,2])
 head(features)
-features_2 <- grep("-mean\\(\\)|-std\\(\\)", features)
+features_2 <- grep("mean\\(\\)|std\\(\\)", features, ignore.case=TRUE)
+
 
 features<-make.names(features,unique=FALSE)
 names(Datatest)<-features
@@ -44,7 +46,7 @@ dim(Datatrain)
 #7. Create tidy data set.
 merge_Temp<-rbind(Temp_train, Temp_test)
 merge_Data<-rbind(Datatrain, Datatest)
-merge_Data_clean<-merge_Data[,features_2==1]
+merge_Data_clean<-merge_Data[,features_2]
 
 datatidy <- cbind(merge_Temp, merge_Data_clean)
 
@@ -56,7 +58,7 @@ names(datatidy)<-gsub("mean","Mean",names(datatidy))
 names(datatidy)<-gsub("std","Std",names(datatidy))
 
 
-write.table(datatidy, "merged_tidy_data.txt")
+write.table(datatidy, "tidydata.txt",row.name=FALSE)
 
 #9. Create a new dataset and calculate  average of each variable for each activity and each subject.
 library(data.table)
