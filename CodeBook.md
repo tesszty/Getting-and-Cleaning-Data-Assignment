@@ -1,25 +1,40 @@
 # Getting-and-Cleaning-Data-Assignment
 
-Code Book
-This code book includes information about the source data, the transformations performed after collecting the data and some information about the variables of the resulting data sets.
-
-Study Design
-
+Data Source: 
 The source data was collected from the UCI Machine Learning Repository to complete an assignment for a Coursera course named Getting and Cleaning Data instructed by Jeff Leek.  Below the description ahat the script is doing.
 
-The script reads first the relevant tables from test and train folders. It reads the X (values), the Y (labels) and the subject tables. 
-Step 2 is to join the Train and test datasets, so the result is 3 different tables.
-After that the lookup tables are also loaded. 
-Feature table gets column names featureID and featureLabel.
-Activity table gets column names activityID and activityLabel. 
-- Activity label field should be cleaned up via removing the "_".
-- Feature label also has to be cleaned up to get back mean and std.  
+==================================================================
+Human Activity Recognition Using Smartphones Dataset
+Version 1.0
+==================================================================
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Università degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
+==================================================================
 
-The original 3 tables (values, labels and subject) also nees new, cleaned up columns, similary as in the lookup tables. Note that this step is repeated, it could have been done together.
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
-Now merge the datasets into one big table including the activities from the lookup table.
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
-Writte the table into a txt.
+The following data files were loaded:
+=========================================
+
+- 'features.txt': List of all features.
+
+- 'activity_labels.txt': Links the class labels with their activity name.
+
+- 'train/X_train.txt': Training set.
+
+- 'train/y_train.txt': Training labels.
+
+- 'test/X_test.txt': Test set.
+
+- 'test/y_test.txt': Test labels.
+
+- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
 
 subjectId: 1 to 30 each representing a participant in the study
