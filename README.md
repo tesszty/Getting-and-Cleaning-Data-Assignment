@@ -1,7 +1,8 @@
 # Getting-and-Cleaning-Data-Assignment
 
-1. Read the relevant tables from test and train, assuming all files are available in the working directory and load them. View the tables.
+The following steps were made to create a tidy data set. For more infromation please revied the Codebook. 
 
+1. Read the relevant tables from test and train, assuming all files are available in the working directory and load them. View the tables.
 2. Join the test-train table subject and activity files
 3. Add names "subjectID" and "activity"
 4. Extracts only the measurements on the mean and standard deviation, Create the name column: read the feature names as character and add the manes to the train and test tables. 
